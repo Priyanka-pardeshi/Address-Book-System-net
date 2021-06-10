@@ -10,6 +10,7 @@ namespace Address_Book_System
     {
         static void Main(string[] args)
         {
+            
             Contacts contact1 = new Contacts()
             {
                 FirstName="sid",
@@ -40,7 +41,7 @@ namespace Address_Book_System
             {
                 Console.WriteLine("Key is {0}",contactkeyValuePair.Key);
                 Contacts contTemp = contactkeyValuePair.Value;
-                Console.WriteLine("Key={0} \n First Name={1} \n Last Name={2} \n Address={3} \n City={4} \n State={5} \n Zip={6} \n Phone={7} \n Email={8}",contactkeyValuePair.Key, contTemp.FirstName,contTemp.LastName,contTemp.Address,contTemp.City,contTemp.State,contTemp.Zip,contTemp.Phone,contTemp.Email);
+                Console.WriteLine("Key show={0} \n First Name={1} \n Last Name={2} \n Address={3} \n City={4} \n State={5} \n Zip={6} \n Phone={7} \n Email={8}",contactkeyValuePair.Key, contTemp.FirstName,contTemp.LastName,contTemp.Address,contTemp.City,contTemp.State,contTemp.Zip,contTemp.Phone,contTemp.Email);
                 Console.WriteLine("---------------------------------------------------------------------");
             }
             Console.ReadKey();
