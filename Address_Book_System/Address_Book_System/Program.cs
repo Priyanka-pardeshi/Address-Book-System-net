@@ -11,7 +11,7 @@ namespace Address_Book_System
         static void Main(string[] args)
         {
             
-            Contacts contact1 = new Contacts()
+            Contacts contactOne = new Contacts()
             {
                 FirstName="sid",
                 LastName="Rao",
@@ -22,7 +22,7 @@ namespace Address_Book_System
                 Phone=232423,
                 Email="Sid@gail.com"
             };
-            Contacts contact2 = new Contacts()
+            Contacts contactTwo = new Contacts()
             {
                  FirstName = "sidhi",
                 LastName = "Raj",
@@ -34,8 +34,8 @@ namespace Address_Book_System
                 Email = "Sidhi@gail.com"
             };
             Dictionary<int, Contacts> dictContact = new Dictionary<int, Contacts>();
-            dictContact.Add(1,contact1);
-            dictContact.Add(2, contact2);
+            dictContact.Add(1,contactOne);
+            dictContact.Add(2, contactTwo);
 
             foreach (KeyValuePair<int,Contacts> contactkeyValuePair in dictContact)
             {
