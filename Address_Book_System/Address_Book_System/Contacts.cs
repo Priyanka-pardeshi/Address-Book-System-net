@@ -23,97 +23,87 @@ namespace Address_Book_System
         /// </summary>
         public void AddContact()
         {
-            Console.WriteLine("Enter First Name:");
-            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter number of records You want to Add???");
+            int numberOfRecord = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Enter Last Name:");
-            string lastName = Console.ReadLine();
-
-            Console.WriteLine("Enter Address:");
-            string address = Console.ReadLine();
-
-            Console.WriteLine("Enter City:");
-            string city = Console.ReadLine();
-
-            Console.WriteLine("State");
-            string state = Console.ReadLine();
-             
-            Console.WriteLine("Enter Zip:");
-            int zip =Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Enter Phone");
-            int phone =Convert.ToInt32(Console.ReadLine());
-           
-            Console.WriteLine("Enter Email:");
-            string email = Console.ReadLine();
-
-            Contacts Objcontact = new Contacts()
+            for (int i = 1; i <= numberOfRecord; i++)
             {
-                FirstName =firstName,
-                LastName = lastName,
-                Address = address,
-                City = city,
-                State = state,
-                Zip = zip,
-                Phone = phone,
-                Email =email
-            };
+                Console.WriteLine("Enter First Name:");
+                string firstName = Console.ReadLine();
 
-            Dictionary<int, Contacts> objDictContact = new Dictionary<int, Contacts>();
-            objDictContact.Add(3,Objcontact);
-            foreach (KeyValuePair<int, Contacts> contactkeyValuePair in objDictContact)
+                Console.WriteLine("Enter Last Name:");
+                string lastName = Console.ReadLine();
+
+                Console.WriteLine("Enter Address:");
+                string address = Console.ReadLine();
+
+                Console.WriteLine("Enter City:");
+                string city = Console.ReadLine();
+
+                Console.WriteLine("State");
+                string state = Console.ReadLine();
+
+                Console.WriteLine("Enter Zip:");
+                int zip = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter Phone");
+                int phone = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter Email:");
+                string email = Console.ReadLine();
+
+                Contacts Objcontact = new Contacts()
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Address = address,
+                    City = city,
+                    State = state,
+                    Zip = zip,
+                    Phone = phone,
+                    Email = email
+                };
+
+                Dictionary<int, Contacts> objDictContact = new Dictionary<int, Contacts>();
+                //auto increment key 
+                int count = objDictContact.Count;
+                objDictContact.Add((count + 1), Objcontact);
+                ShowAllContacts(objDictContact);
+            }
+        }
+
+
+        public void ShowAllContacts(dynamic objShowDictContact)
+        {
+            foreach (KeyValuePair<int,Contacts> objShowContact in objShowDictContact)
             {
-                Console.WriteLine("Key is {0}", contactkeyValuePair.Key);
-                Contacts contTemp = contactkeyValuePair.Value;
-                Console.WriteLine("Key show={0} \n First Name={1} \n Last Name={2} \n Address={3} \n City={4} \n State={5} \n Zip={6} \n Phone={7} \n Email={8}", contactkeyValuePair.Key, contTemp.FirstName, contTemp.LastName, contTemp.Address, contTemp.City, contTemp.State, contTemp.Zip, contTemp.Phone, contTemp.Email);
+                Console.WriteLine("Key is={0}", objShowContact.Key);
+                Contacts contTemp = objShowContact.Value;
+                Console.WriteLine("Key show={0} \n First Name={1} \n Last Name={2} \n Address={3} \n City={4} \n State={5} \n Zip={6} \n Phone={7} \n Email={8}", objShowContact.Key, contTemp.FirstName, contTemp.LastName, contTemp.Address, contTemp.City, contTemp.State, contTemp.Zip, contTemp.Phone, contTemp.Email);
                 Console.WriteLine("---------------------------------------------------------------------");
             }
         }
 
-        public void Insert()
+        public void EditContact(Contacts contactFour)
         {
-           
-
-        }
-
-        public void EditContact()
-        {
-            Contacts contactFour = new Contacts()
-            {
-                FirstName = "sid",
-                LastName = "Rao",
-                Address = "Dhankavdi",
-                City = "Pune",
-                State = "Maharashtra",
-                Zip = 101,
-                Phone = 232423,
-                Email = "Sid@gail.com"
-            };
-            Dictionary<int, Contacts> objContactInsert = new Dictionary<int, Contacts>();
-
-            objContactInsert.Add(4, contactFour);
-            if (objContactInsert.ContainsKey(4) == true)
-            {
-                foreach (KeyValuePair<int , Contacts> contactkeyValuePair in objContactInsert)
+            Dictionary<int, Contacts> objEditDict = new Dictionary<int, Contacts>();
+            objEditDict.Add(1, contactFour);
+            Console.WriteLine("enter edited values");
+                foreach (KeyValuePair<int , Contacts> contactkeyValuePair in objEditDict)
                 {
                     Contacts contTemp = contactkeyValuePair.Value;
-                    Console.WriteLine("from edit   Key show={0} \n First Name={1} \n Last Name={2} \n Address={3} \n City={4} \n State={5} \n Zip={6} \n Phone={7} \n Email={8}", contactkeyValuePair.Key, contTemp.FirstName, contTemp.LastName, contTemp.Address, contTemp.City, contTemp.State, contTemp.Zip, contTemp.Phone, contTemp.Email);
+                    Console.WriteLine("This Is the contact to edit");
+                    Console.WriteLine("Key show={0} \n First Name={1} \n Last Name={2} \n Address={3} \n City={4} \n State={5} \n Zip={6} \n Phone={7} \n Email={8}", contactkeyValuePair.Key, contTemp.FirstName, contTemp.LastName, contTemp.Address, contTemp.City, contTemp.State, contTemp.Zip, contTemp.Phone, contTemp.Email);
                 }
                 Console.WriteLine("-------------------------------------------------");
-                Console.WriteLine("enter edited values");
                 AddContact();
-                //Console.WriteLine("1.first name \n 2.last name \n 3.address \n 4.city \n 5.state \n 6.zip \n 7.Phone \n 8.email \n");
-                //int checkChoice = Convert.ToInt32(Console.ReadLine());
-                //switch (checkChoice)
-                //{
-                //    case 1:
-                //        Console.WriteLine("Enter Update:");
-                //        string updateFirstName = Console.ReadLine();
-                //        break;
-                //}
+                //insert contact
+            //}
 
-
-            }
+        }
+        public void getCon(Contacts contact)
+        {
+            Console.WriteLine(contact.Address);
         }
     }
 }

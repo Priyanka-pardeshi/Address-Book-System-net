@@ -10,20 +10,23 @@ namespace Address_Book_System
     {
         static void Main(string[] args)
         {
-
             Console.WriteLine("hii");
             Contacts objContact = new Contacts();
-            //Contacts contactOne = new Contacts()
-            //{
-            //    FirstName = "sid",
-            //    LastName = "Rao",
-            //    Address = "Dhankavdi",
-            //    City = "Pune",
-            //    State = "Maharashtra",
-            //    Zip = 101,
-            //    Phone = 232423,
-            //    Email = "Sid@gail.com"
-            //};
+            Contacts contactOne = new Contacts()
+            {
+                FirstName = "sid",
+                LastName = "Rao",
+                Address = "Dhankavdi",
+                City = "Pune",
+                State = "Maharashtra",
+                Zip = 101,
+                Phone = 232423,
+                Email = "Sid@gail.com"
+            };
+
+            
+            
+
             Contacts contactTwo = new Contacts()
             {
                 FirstName = "sidhi",
@@ -35,9 +38,17 @@ namespace Address_Book_System
                 Phone = 232423,
                 Email = "Sidhi@gail.com"
             };
+
+
             Dictionary<int, Contacts> dictContact = new Dictionary<int, Contacts>();
-            //dictContact.Add(1, contactOne);
+            dictContact.Add(1, contactOne);
             dictContact.Add(2, contactTwo);
+            //call method using particuler Key  
+            //objContact.getCon(dictContact[1]);
+
+            //edit contact
+            objContact.EditContact(dictContact[2]);
+
             foreach (KeyValuePair<int, Contacts> contactkeyValuePair in dictContact)
             {
                 Console.WriteLine("Key is {0}", contactkeyValuePair.Key);
@@ -57,7 +68,7 @@ namespace Address_Book_System
                     break;
                 case 2:
                     //edit contact
-                    objContact.EditContact();
+                    //objContact.EditContact();
                     break;
                 default:
                     Console.WriteLine("default value");
